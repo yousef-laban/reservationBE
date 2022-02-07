@@ -40,6 +40,9 @@ const generateToken = (user) => {
     id: user.id,
     username: user.username,
     email: user.email,
+    type: user.type,
+    image: user.image,
+    name: user.name,
     exp: Date.now() + JWT_EXPIRATION_MS,
   };
   const token = jwt.sign(payload, JWT_SECRET);
