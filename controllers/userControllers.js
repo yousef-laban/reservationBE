@@ -20,6 +20,8 @@ exports.signup = async (req, res, next) => {
   try {
     req.body.password = await bcrypt.hash(req.body.password, 10);
 
+    if (req.file)
+      req.body.image = `http://${req.get("host")}/media/${req.file.filename}`;
     const newUser = await User.create(req.body);
     const token = generateToken(newUser);
     res.status(201).json({ token });
