@@ -25,6 +25,10 @@ const resevationSchema = new Schema({
     default: "pending",
   },
 
+  contact: {
+    type: String,
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,
